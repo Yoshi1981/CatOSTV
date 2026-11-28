@@ -410,8 +410,8 @@ mod tests {
         );
         assert_eq!(parse_state("weird"), None);
         assert!(
-            archive_mirrorlist("2026/10/15")
-                .contains("Server = https://archive.archlinux.org/repos/2026/10/15/$repo/os/$arch")
+            archive_mirrorlist("2026/11/27")
+                .contains("Server = https://archive.archlinux.org/repos/2026/11/27/$repo/os/$arch")
         );
     }
 

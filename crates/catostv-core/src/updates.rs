@@ -4,7 +4,7 @@
 //! [`CONFIG`]:
 //!
 //! ```json
-//! {"version": "0.5.0", "archive_date": "2026/10/15",
+//! {"version": "0.5.0", "archive_date": "2026/11/27",
 //!  "notes": ["Recents shows what each app was doing", "…"],
 //!  "package": {"url": "https://…/catostv-0.5.0.tar.zst",
 //!              "sha256": "<64 hex digits>"}}
@@ -360,7 +360,7 @@ pub fn install_cmd() -> Cmd {
 mod tests {
     use super::*;
 
-    const GOOD: &str = r#"{"version": "0.5.0", "archive_date": "2026/10/15",
+    const GOOD: &str = r#"{"version": "0.5.0", "archive_date": "2026/11/27",
         "notes": ["Recents previews", "Debug page"],
         "package": {"url": "https://example.org/catostv-0.5.0.tar.zst",
                     "sha256": "AB12ab12ab12ab12ab12ab12ab12ab12ab12ab12ab12ab12ab12ab12ab12ab12"}}"#;
@@ -372,7 +372,7 @@ mod tests {
         assert_eq!(m.notes.len(), 2);
         assert!(m.package_sha256.starts_with("ab12"));
         for bad in [
-            GOOD.replace("2026/10/15", "2026-10-15"),
+            GOOD.replace("2026/11/27", "2026-11-27"),
             GOOD.replace("\"0.5.0\"", "\"../x\""),
             GOOD.replace("https://example.org", "file:///etc"),
             GOOD.replace("AB12ab12", "zz"),
